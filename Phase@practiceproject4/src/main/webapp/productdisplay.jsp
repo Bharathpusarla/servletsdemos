@@ -1,4 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@  page import= "java.util.List" %>
+<%@page  import= "com.samples.domain.Product" %>
+
+ <%
+   Product product = (Product)session.getAttribute("Products");
+     %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +11,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <%
-  
-	Object sss = session.getAttribute("Products");
-     %>
-     <%=request.getAttribute("Products") %>
-  
+  <table class ="table">
+   <tbody>
+    <tr>
+    <td>id: </td>>
+    <td><%=product.getId() %></td>>
+    </tr>
+    <tr>
+    <td>PNAME: </td>>
+    <td><%=product.getPName() %></td>>
+    </tr>
+    <tr>
+    <td>PCOST: </td>>
+    <td><%=product.getPcost() %></td>>
+    </tr>
+    <tr>
+    <td>PCATEGORY: </td>>
+    <td><%=product.getPcategory() %></td>>
+    </tr>
+   </tbody>
+  </table>
+  <p><a href="product.html">Back</a>
 </body>
 </html>

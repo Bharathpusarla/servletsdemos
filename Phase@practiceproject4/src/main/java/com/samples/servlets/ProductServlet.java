@@ -24,19 +24,19 @@ public class ProductServlet extends HttpServlet {
      
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session =request.getSession();
 		String id = request.getParameter("id");
 		String Pname = request.getParameter("Pname");
 		String Pcost = request.getParameter("Pcost");
-		String Pcategory= request.getParameter("Pcatogery");
-		Product product = new Product(Integer.parseInt(request.getParameter("id")), request.getParameter("Pname"),Integer.parseInt(request.getParameter("Pcost")),request.getParameter("productqty"));
-	    session.setAttribute("Products", product);
+		String Pcategery= request.getParameter("Pcatogery");
+		Product product = new Product(Integer.parseInt(request.getParameter("id")), request.getParameter("Pname"),Integer.parseInt(request.getParameter("Pcost")),request.getParameter("Pcatogery"));
+		HttpSession session =request.getSession();
+		session.setAttribute("Products", product);
+		//response.sendRedirect("/productdisplay.jsp");
 	    
-		List ls = new ArrayList();
-		ls.add(product);
-		PrintWriter out = response.getWriter();
+		//List ls = new ArrayList();
+		//ls.add(product);
+		//PrintWriter out = response.getWriter();
 		//out.println(ls);
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/productdisplay.jsp");
 		rd.forward(request, response);
 		

@@ -6,6 +6,7 @@ public class Product {
 	 String PName ;
 	 int Pcost;
 	 String Pcategory;
+	  public Product() {}
 	
 	
 	  public Product(int id, String pName, int pcost, String pcategory) {
